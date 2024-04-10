@@ -1,0 +1,11 @@
+fastapi
+numpy
+matplotlib
+click
+pyzmq
+uvicorn
+python-multipart
+torch
+trochvision
+faiss
+sentence-transformers

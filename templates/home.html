@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en' dir='ltr'>
+  <head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans HK' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+    <link rel='stylesheet' href='static/style.css'>
+  </head>
+  <body>
+    <div class='main'>
+        <div class=''>
+          <img src='./static/google_logo.png' alt='' class='google'>
+        </div>
+        <form action='/upload' method='post' enctype='multipart/form-data'>
+            <div class='searchb'>
+            <span class='material-icons searchicon'>search</span>
+            <input type='text' value='' autofocus required>
+                <a href=''><img src='./static/mic_logo.png' alt='' class='mic'></a>
+                <a href=''><img src='./static/im_logo.webp' alt='' class='im' id='uploadImageButton'></a>
+            <input type='file' style='display: none;' id='fileInput' name='file' accept='image/*'>
+            </div>
+            <div class='sbutton'>
+            <input type='button' name='' value='Google Search'>
+            <input type='button' name='' value="I'm Feeling Lucky">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const uploadImageButton = document.getElementById('uploadImageButton');
+        const fileInput = document.getElementById('fileInput');
+    
+        uploadImageButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            fileInput.click();
+        });
+    
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            console.log('File selected:', file);
+            document.querySelector('form').submit();
+        });
+    </script>
+
+  </body>
+</html>

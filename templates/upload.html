@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visual Search App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 10%;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .queryImage {
+            margin-right: 20px;
+        }
+
+        .queryImage img {
+            max-width: 80%;
+            height: auto;
+        }
+
+        .similarImages table {
+            border-collapse: collapse;
+            margin-right: 50px;
+        }
+
+        .similarImages td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        .similarImages img {
+            max-width: 150px;
+            max-height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('home') }}">Change Query Image</a>
+    <div class="container">
+        <div class="queryImage">
+            <h2>Query Image</h2>
+            <img src="data:image/jpeg;base64,{{ queryImage | safe }}">
+        </div>
+        <div class="similarImages">
+            <h2>Similar Images</h2>
+            <table>
+                {% for i in range(3) %}
+                <tr>
+                    {% for j in range(5) %}
+                        <td><img src="data:image/jpeg;base64,{{ similarImages[i*5 + j] | safe }}"></td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>
